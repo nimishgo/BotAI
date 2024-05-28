@@ -27,7 +27,7 @@ export default function ChatSection({ questions, setRatings }) {
                 }`}
               >
                 <div
-                  className={`p-2 bg-slate-100 rounded-full m-2  ${
+                  className={`p-2 bg-customPurple rounded-full m-2  ${
                     index % 2 == 0 ? "p-2" : "p-0"
                   }`}
                 >
