@@ -1,7 +1,9 @@
+import Chat from "./components/Chat";
+
 function App() {
   return (
     <>
-      <p className="text-4xl">Hello world</p>
+      <Chat />
     </>
   );
 }
