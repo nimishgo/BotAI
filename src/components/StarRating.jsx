@@ -14,7 +14,10 @@ export default function StarRating({ rating, onRating }) {
             key={index}
             type="button"
             className="focus:outline-none"
-            onClick={() => onRating(ratingValue)}
+            onClick={() => {
+              console.log(`Star clicked: ${ratingValue}`);
+              onRating(ratingValue);
+            }}
             onMouseEnter={() => setHover(ratingValue)}
             onMouseLeave={() => setHover(0)}
           >

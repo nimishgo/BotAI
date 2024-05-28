@@ -1,18 +1,13 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { v4 as uuidv4 } from "uuid";
 import computerIcon from "../assets/AppIcon.png";
 import StarRating from "./StarRating";
+import MockUp from "./MockUp";
 
-export default function ChatSection({ questions }) {
-  const [ratings, setRatings] = useState({});
-
+export default function ChatSection({ questions, setRatings }) {
   const handleRating = (index, rating) => {
-    setRatings((prevRatings) => ({
-      ...prevRatings,
-      [index]: rating,
-    }));
+    setRatings(index, rating);
   };
 
   return (
@@ -51,19 +46,21 @@ export default function ChatSection({ questions }) {
                     index % 2 === 0 ? "self-end" : ""
                   }`}
                 >
-                  {x}
+                  {x.text}
                 </div>
               </div>
               {index % 2 == 1 && (
                 <StarRating
-                  rating={ratings[index] || 0}
+                  rating={x.rating || 0}
                   onRating={(rating) => handleRating(index, rating)}
                 />
               )}
             </li>
           ))}
         </ul>
-      ) : null}
+      ) : (
+        <MockUp />
+      )}
     </section>
   );
 }
